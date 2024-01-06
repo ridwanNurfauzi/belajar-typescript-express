@@ -14,7 +14,8 @@ const sequelizeConnection = new Sequelize(dbName, dbUsername, dbPassword, {
     host: dbHost,
     port: dbPort,
     dialect: dbDialect as Dialect,
-    logging: false
+    logging: false,
+    timezone: process.env.TZ || 'Asia/Jakarta'
 });
 
 export default sequelizeConnection;
