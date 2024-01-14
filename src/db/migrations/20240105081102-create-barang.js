@@ -15,6 +15,10 @@ module.exports = {
       harga: {
         type: Sequelize.DOUBLE
       },
+      deskripsi: {
+        allowNull: true,
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

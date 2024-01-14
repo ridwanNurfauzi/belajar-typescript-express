@@ -54,7 +54,10 @@ const addBarang = async (req: Request, res: Response) => {
         harga: {
             notEmpty: { errorMessage: 'Harga tidak boleh kosong.' },
             isNumeric: { errorMessage: 'Harga harus berupa angka.' }
-        }
+        },
+        deskripsi: {
+            isString: { errorMessage: 'Harga harus berupa teks.' }
+        },
     }).run(req);
 
     const vResult = validationResult(req);
@@ -68,7 +71,8 @@ const addBarang = async (req: Request, res: Response) => {
 
     const values = {
         nama: req.body.nama,
-        harga: req.body.harga
+        harga: req.body.harga,
+        deskripsi: req.body.deskripsi
     };
 
     try {
@@ -111,7 +115,8 @@ const editBarang = async (req: Request, res: Response) => {
 
     const values = {
         nama: req.body.nama,
-        harga: req.body.harga
+        harga: req.body.harga,
+        deskripsi: req.body.deskripsi
     };
 
     try {
