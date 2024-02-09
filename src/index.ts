@@ -1,13 +1,22 @@
 import express, { Request, Response } from "express";
-import bodyParser from "body-parser";
+import formData from "express-form-data";
 import methodOverride from "method-override";
+import cors from "cors";
+import path from "path";
 import server from "./config/server";
 import router from "./routes";
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+app.use(cors());
+
+app.use(formData.parse({ uploadDir: path.join(__dirname, '/tmp'), autoClean: true }));
+app.use(formData.format());
+app.use(formData.stream());
+// app.use(formData.union());
 
 app.use(methodOverride((req: Request, res: Response) => {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -17,6 +26,8 @@ app.use(methodOverride((req: Request, res: Response) => {
         return method;
     }
 }));
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(router);
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+
+<body>
+    <div>
+        <form action="/test" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>nama</td>
+                    <td>:</td>
+                    <td><input type="text" name="nama" id="nama"></td>
+                </tr>
+                <tr>
+                    <td>file</td>
+                    <td>:</td>
+                    <td><input type="file" name="avatar" id="avatar"></td>
+                </tr>
+                <tr>
+                    <td>check</td>
+                    <td>:</td>
+                    <td>
+                        <input type="checkbox" name="check" id="html" value="html">
+                        <label for="html">HTML</label> <br>
+                        <input type="checkbox" name="check" id="css" value="css">
+                        <label for="css">CSS</label> <br>
+                        <input type="checkbox" name="check" id="js" value="js">
+                        <label for="js">JS</label> <br>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Kirim">
+        </form>
+    </div>
+</body>
+
+</html>

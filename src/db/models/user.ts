@@ -7,6 +7,7 @@ type UserAttributes = {
   firstname: string,
   lastname: string | null,
   password: string,
+  photo: string | null,
 
   createdAt?: Date,
   updatedAt?: Date
@@ -21,6 +22,7 @@ class User extends Model<UserAttributes, UserInput> implements UserAttributes {
   public firstname!: string;
   public lastname!: string | null;
   public password!: string;
+  public photo!: string | null;
 
   public readonly createdAt!: Date | undefined;
   public readonly updatedAt!: Date | undefined;
@@ -47,6 +49,10 @@ User.init({
   },
   password: {
     allowNull: false,
+    type: DataTypes.STRING
+  },
+  photo: {
+    allowNull: true,
     type: DataTypes.STRING
   },
 }, {

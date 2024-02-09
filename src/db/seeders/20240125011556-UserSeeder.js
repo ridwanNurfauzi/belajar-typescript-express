@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Users', []);
+    // await queryInterface.bulkInsert('Users', [], {});
   },
 
   async down(queryInterface, Sequelize) {
